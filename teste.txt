@@ -1,0 +1,5 @@
+1,2,3,4,5,6,7,Defensivo
+1,2,3,4,5,6,7,Ofensivo
+1,2,3,4,5,6,7,Defensivo
+1,2,3,4,5,6,7,Defensivo
+1,2,3,4,5,6,7,Defensivo
