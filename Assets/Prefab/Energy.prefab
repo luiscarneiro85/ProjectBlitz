@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 58761238834747144}
   - component: {fileID: 114557143711364878}
   - component: {fileID: 82623514428560542}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Energy
   m_TagString: xp
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1958113128598900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.294037, y: -109.699585, z: 0}
+  m_LocalPosition: {x: -24.987024, y: -109.68634, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

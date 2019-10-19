@@ -10,7 +10,8 @@ public class H6 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        //target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.Find("Blitz").transform;
 
 	}
 	

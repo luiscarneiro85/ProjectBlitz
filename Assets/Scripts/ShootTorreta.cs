@@ -32,7 +32,7 @@ public class ShootTorreta : MonoBehaviour {
             direction = new Vector3(0, 0, 0);
             anim.SetTrigger("collision");
         }
-        else if(collision.tag != "Enemy")
+        else if(collision.tag != "Sentry")
         {
             direction = new Vector3(0, 0, 0);
             anim.SetTrigger("collision");

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Heal : MonoBehaviour {
 
     GameObject gm;
+    public float hpRecover;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +23,7 @@ public class Heal : MonoBehaviour {
         if(collision.tag == "Player")
         {
             gm.SendMessage("PlayHealSound");
-            collision.SendMessage("gainHp", 3f);
+            collision.SendMessage("gainHp", hpRecover);
             Destroy(this.gameObject);
         }
     }

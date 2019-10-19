@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -24,7 +23,16 @@ public class GameManager : MonoBehaviour {
     public AudioClip boxBreakSound;
     public AudioClip healSound;
 
-    // variaveis para controle de salas
+
+
+    public List<GameObject> icons = new List<GameObject>();
+
+    //public Dictionary<string,GameObject> shootList = new Dictionary<string,GameObject>();
+    public List<GameObject> shootList = new List<GameObject>();
+
+
+    public List<GameObject> skillList = new List<GameObject>();
+    
 
     // Use this for initialization
     void Start () {
@@ -37,6 +45,11 @@ public class GameManager : MonoBehaviour {
         foreach(GameObject floor in script.floor)
         {
             enemysTotal += floor.GetComponent<MapConfig>().enemysLeft;
+        }
+
+        foreach(GameObject skill in skillList)
+        {
+            skill.GetComponent<Skill>().purchased = false;
         }
 		
 	}
@@ -112,6 +125,15 @@ public class GameManager : MonoBehaviour {
         GetComponent<AudioSource>().PlayOneShot(healSound, musicControl.soundVolume);
     }
 
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene("Floor_1");
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MenuPrincipal");
+    }
 
 
 }

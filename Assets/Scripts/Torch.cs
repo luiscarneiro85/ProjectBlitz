@@ -5,10 +5,12 @@ using UnityEngine;
 public class Torch : MonoBehaviour {
 
     Animator anim;
+    GameObject knn;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         anim = GetComponent<Animator>();
+        knn = GameObject.Find("KnnWatcher");
     }
 	
 	// Update is called once per frame
@@ -21,6 +23,10 @@ public class Torch : MonoBehaviour {
         if(collision.tag == "Attack")
         {
             anim.SetBool("fire",false);
+           //if (knn.GetComponent<knnRecord>().knnAtivar)
+            //{
+                knn.GetComponent<knnRecord>().numberOfBoxes++;
+            //}
         }
     }
 

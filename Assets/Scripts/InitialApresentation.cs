@@ -21,7 +21,7 @@ public class InitialApresentation : MonoBehaviour {
 
         if (a2vlLogo.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsTag("end"))
         {
-            SceneManager.LoadScene("'MenuPrincipal");
+            SceneManager.LoadScene("Pesquisa");
         }
 
     }
@@ -36,7 +36,7 @@ public class InitialApresentation : MonoBehaviour {
         }
         else
         {
-            SceneManager.LoadScene("'MenuPrincipal");
+            SceneManager.LoadScene("Pesquisa");
         }
         
     }

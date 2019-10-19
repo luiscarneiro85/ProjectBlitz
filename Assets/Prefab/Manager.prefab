@@ -145,3 +145,18 @@ MonoBehaviour:
   breakSound: {fileID: 8300000, guid: 3d9f46a8bc3007143a65c96cad163754, type: 3}
   boxBreakSound: {fileID: 8300000, guid: cdaf506f82738864c97cd7248bfcc821, type: 3}
   healSound: {fileID: 8300000, guid: 9af0b82695dcb1f4f858b7631ba44a2c, type: 3}
+  icons:
+  - {fileID: 1113240395535984, guid: 0200e082e45b1a94bb696f69409f2a4b, type: 2}
+  - {fileID: 1084896750488180, guid: 25edf525ff52faf4681e07dd08521a8d, type: 2}
+  - {fileID: 1290133058890766, guid: 69a166fb0b22ee046b50ec0c9b66d657, type: 2}
+  shootList:
+  - {fileID: 1730183102585228, guid: 565c7c7b95970c545b2c1b5103a5451a, type: 2}
+  - {fileID: 1525628700749660, guid: 5432bf17810b80444bfb1b422febc902, type: 2}
+  - {fileID: 1690438934121168, guid: 08c0764aa960578489f3011728caf664, type: 2}
+  skillList:
+  - {fileID: 1124100573957360, guid: 1de5b7ebe0d60844d9e63e81b5a5aab8, type: 2}
+  - {fileID: 1298825748088162, guid: 34980aba9225be44294b5afb239a2693, type: 2}
+  - {fileID: 1362834496936992, guid: 93c2e5a8db629e143929c2fead15fda4, type: 2}
+  - {fileID: 1992480153363724, guid: 29fe4abce23c7b64299be91add842c3b, type: 2}
+  - {fileID: 1318212246071932, guid: 272053969e92f14419b6c9d3a416071e, type: 2}
+  - {fileID: 1390715821430994, guid: 6cd8f958c2448d6459b2cef518930c14, type: 2}

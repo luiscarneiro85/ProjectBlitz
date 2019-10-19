@@ -22,9 +22,10 @@ public class EnemyTorreta : MonoBehaviour {
     float attackDamage = 1;
 
     bool isAttack = false;
-    bool isActive = false;
+    public bool isActive = false;
     bool dead = false;
-    bool ready = false;
+    public bool ready = false;
+    public bool stun = false;
 
     RaycastHit2D hit;
 
@@ -33,6 +34,10 @@ public class EnemyTorreta : MonoBehaviour {
     public GameObject lifeBar;
 
     public AudioClip hitSound;
+    GameObject knn;
+
+    List<float> deltaDistance = new List<float>();
+    bool deltaDistanceLock = false;
 
     // Use this for initialization
     void Start () {
@@ -41,6 +46,7 @@ public class EnemyTorreta : MonoBehaviour {
         gm = GameObject.Find("Manager");
         anim = GetComponent<Animator>();
         hp = hpMax;
+        knn = GameObject.Find("KnnWatcher");
     }
 	
 	// Update is called once per frame
@@ -48,8 +54,18 @@ public class EnemyTorreta : MonoBehaviour {
 
         if (gm.GetComponent<GameManager>().gameState.Equals("play"))
         {
-            if (isActive && ready)
+            player = GameObject.FindGameObjectWithTag("Player");
+            if (isActive && ready && !stun)
             {
+                if (knn.GetComponent<knnRecord>().knnAtivar)
+                {
+                    if (!deltaDistanceLock)
+                    {
+                        StartCoroutine(DistanceCount());
+                    }
+
+                }
+
                 lifeBar.GetComponent<Image>().fillAmount = hp / hpMax;
 
                 if (hp > hpMax) hp = hpMax;
@@ -140,6 +156,10 @@ public class EnemyTorreta : MonoBehaviour {
         }
         else if (collision.tag == "Attack")
         {
+            if (knn.GetComponent<knnRecord>().knnAtivar)
+            {
+                knn.GetComponent<knnRecord>().numberOfHits++;
+            }
             if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Hit") || anim.GetCurrentAnimatorStateInfo(0).IsTag("dead"))
             {
 
@@ -150,6 +170,15 @@ public class EnemyTorreta : MonoBehaviour {
                 collision.GetComponent<Shoot>().direction = new Vector3(0, 0, 0);
                 takeDamage(collision.GetComponent<Shoot>().damage);
                 collision.GetComponent<Animator>().SetTrigger("collision");
+                if (player.GetComponent<Player>().skillEquiped != null)
+                {
+                    if (player.GetComponent<Player>().skillEquiped.GetComponent<Skill>().effect.Equals("Drenar") && player.GetComponent<Player>().skillEquiped.GetComponent<Skill>().active)
+                    {
+                        //player.gameObject.SendMessage("gainHP", collision.GetComponent<Shoot>().damage);
+                        player.GetComponent<Player>().gainHp(collision.GetComponent<Shoot>().damage);
+                    }
+                }
+
             }
 
         }
@@ -159,11 +188,35 @@ public class EnemyTorreta : MonoBehaviour {
     {
         hp -= damage;
         GetComponent<AudioSource>().PlayOneShot(hitSound, musicControl.soundVolume);
+
+
     }
 
     void die()
     {
+        //retira a animação de morte do raycast
+        gameObject.layer = 2;
         anim.SetTrigger("die");
+
+        if (knn.GetComponent<knnRecord>().knnAtivar)
+        {
+            float sum = 0;
+            if (deltaDistance.Count == 0)
+            {
+                sum = .5f;
+            }
+            else
+            {
+                foreach (float d in deltaDistance)
+                {
+                    sum += d;
+                }
+                sum = sum / deltaDistance.Count;
+            }
+            
+            knn.GetComponent<knnRecord>().distanceOfEnemys.Add(sum);
+        }
+
     }
 
     private void OnBecameVisible()
@@ -192,5 +245,13 @@ public class EnemyTorreta : MonoBehaviour {
     {
         yield return new WaitForSeconds(1f);
         ready = true;
+    }
+    public IEnumerator DistanceCount()
+    {
+        deltaDistanceLock = true;
+        yield return new WaitForSeconds(1);
+        deltaDistance.Add(distance);
+        deltaDistanceLock = false;
+
     }
 }

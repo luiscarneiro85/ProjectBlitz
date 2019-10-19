@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1318212246071932}
+  m_IsPrefabAsset: 1
+--- !u!1 &1318212246071932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4127477961090438}
+  - component: {fileID: 114472043773157704}
+  m_Layer: 0
+  m_Name: ArmadilhaDeFogo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4127477961090438
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1318212246071932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -242.55089, y: 349.6548, z: 0.02749507}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114472043773157704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1318212246071932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf8b0305c158f914f9f8b34bf5625bca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rechargeTime: 35
+  active: 0
+  cost: 40
+  effect: ArmadilhaDeFogo
+  effectTime: 2
+  effectPower: 1
+  purchased: 1
+  info: Armadilha que explo liberando chamas quando um inimigo se aproxima.
+  ready: 0
+  icon: {fileID: 21300004, guid: ca9dddc7b8ba49b4391b567cfb03f655, type: 3}
+  hp: 0
+  fire: {fileID: 1538005587220370, guid: 10498d8b3e7a79343aad8710782592b8, type: 2}
+  id: 5
+  visualEffect: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: ae8b79ee3a1f7b64cb860b3b062fab7b, type: 3}

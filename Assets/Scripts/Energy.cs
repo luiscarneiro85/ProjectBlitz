@@ -14,6 +14,7 @@ public class Energy : MonoBehaviour {
     GameObject player;
     RaycastHit2D hit;
     GameObject gm;
+    GameObject knn;
 
 
     private void Awake()
@@ -25,6 +26,12 @@ public class Energy : MonoBehaviour {
         delay = Random.Range(0.5f, 1.2f);
         player = GameObject.FindGameObjectWithTag("Player");
         gm = GameObject.Find("Manager");
+        knn = GameObject.Find("KnnWatcher");
+        //if (player.GetComponent<Player>().currentMap.GetComponent<MapConfig>().clear == false)
+        //{
+            knn.GetComponent<knnRecord>().totalEnergy++;
+        //}
+            
 
     }
 	
@@ -56,6 +63,11 @@ public class Energy : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player")
         {
+            //sempre que o jogador coletar um uma energia e as portas do mapa atual estiverem fechadas soma um na energia coletada
+           // if(collision.GetComponent<Player>().currentMap.GetComponent<MapConfig>().clear == false)
+            //{
+                knn.GetComponent<knnRecord>().collectedEnergy++;
+            //}
             gm.SendMessage("PlayerEnergySound");
             collision.SendMessage("getEnergy", 1);
             Destroy(this.gameObject);

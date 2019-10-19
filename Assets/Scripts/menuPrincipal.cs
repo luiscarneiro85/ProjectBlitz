@@ -200,7 +200,7 @@ public class menuPrincipal : MonoBehaviour {
         }
 
         //controla a seleção das opções do menu
-        if (Input.GetButtonDown("A") && state.Equals("menu"))
+        if ((Input.GetButtonDown("A") || Input.GetButtonDown("Submit")) && state.Equals("menu"))
         {
             switch (indice)
             {
@@ -258,7 +258,7 @@ public class menuPrincipal : MonoBehaviour {
         }
 
         //retorna do menu opções para o menu principal
-        if (Input.GetButtonDown("B") && (state.Equals("options") || state.Equals("music") || state.Equals("idioma") || state.Equals("others")))
+        if ((Input.GetButtonDown("B") || Input.GetButtonDown("Cancel")) && (state.Equals("options") || state.Equals("music") || state.Equals("idioma") || state.Equals("others")))
         {
             GetComponent<AudioSource>().PlayOneShot(axisSound, musicControl.soundVolume);
             clearScreen();
@@ -287,8 +287,89 @@ public class menuPrincipal : MonoBehaviour {
         }
         
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
-    void loadScene(string scene)
+    public void OpenOptions()
+    {
+        indice = 0;
+        state = "options";
+        clearScreen();
+        options.SetActive(true);
+        if (globalMusic == 0)
+        {
+            music.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("select", true);
+        }
+        if (globalMusic == 1)
+        {
+            music.transform.GetChild(1).gameObject.GetComponent<Animator>().SetBool("select", true);
+        }
+        if (globalMusic == 2)
+        {
+            music.transform.GetChild(2).gameObject.GetComponent<Animator>().SetBool("select", true);
+        }
+        if (initialLanguage == 0)
+        {
+            idioma.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("select", true);
+        }
+        if (initialLanguage == 1)
+        {
+            idioma.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("select", true);
+        }
+    }
+
+    public void OpenCredits()
+    {
+        clearScreen();
+        creditos.SetActive(true);
+        state = "others";
+    }
+
+    public void OpenControls()
+    {
+        clearScreen();
+        controle.SetActive(true);
+        state = "others";
+    }
+
+    public void OpenAbout()
+    {
+        clearScreen();
+        sobre.SetActive(true);
+        state = "others";
+    }
+
+    public void BackToMainMenu()
+    {
+        GetComponent<AudioSource>().PlayOneShot(axisSound, musicControl.soundVolume);
+        clearScreen();
+        menu.SetActive(true);
+        state = "menu";
+        indice = 0;
+    }
+
+    public void ChangeLanguage(int indice)
+    {
+        GetComponent<AudioSource>().PlayOneShot(axisSound, musicControl.soundVolume);
+        initialLanguage = indice;
+        idioma.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("select", false);
+        idioma.transform.GetChild(1).gameObject.GetComponent<Animator>().SetBool("select", false);
+        idioma.transform.GetChild(indice).gameObject.GetComponent<Animator>().SetBool("select", true);
+    }
+
+    public void ChangeMusic(int indice)
+    {
+        GetComponent<AudioSource>().PlayOneShot(axisSound, musicControl.soundVolume);
+        globalMusic = indice;
+        music.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("select", false);
+        music.transform.GetChild(1).gameObject.GetComponent<Animator>().SetBool("select", false);
+        music.transform.GetChild(2).gameObject.GetComponent<Animator>().SetBool("select", false);
+        music.transform.GetChild(indice).gameObject.GetComponent<Animator>().SetBool("select", true);
+    }
+
+    public void loadScene(string scene)
     {
         SceneManager.LoadScene(scene);
     }

@@ -12,7 +12,7 @@ public class MapConfig : MonoBehaviour {
 
     //public List<GameObject> listDoors = new List<GameObject>();
     public int enemysLeft;
-
+    public bool onTime = true;
     public GameObject doors;
     //public GameObject chestSpot;
     //public GameObject chest;
@@ -20,6 +20,7 @@ public class MapConfig : MonoBehaviour {
     public List<GameObject> enemySpot = new List<GameObject>();
     GameObject gm;
     GameObject knn;
+    GameObject player;
 
     int aux;
     float timer = 0;
@@ -31,6 +32,7 @@ public class MapConfig : MonoBehaviour {
     void Start () {
         gm = GameObject.Find("Manager");
         knn = GameObject.Find("KnnWatcher");
+        player = GameObject.Find("Player");
 
 	}
 	
@@ -44,9 +46,10 @@ public class MapConfig : MonoBehaviour {
             doors.gameObject.SetActive(true);
             if(!populated && enemysLeft > 0) populateRoom();
             
+            
         }
 
-        //liberaas portas quando todos inimigos forem derrotados
+        //libera as portas quando todos inimigos forem derrotados
         if (clear)
         {
             doors.gameObject.SetActive(false);
@@ -60,6 +63,9 @@ public class MapConfig : MonoBehaviour {
         {
             enemysLeft = 0;
             clear = true;
+
+            //int aux = Random.Range(0, (gm.GetComponent<GameManager>().icons.Count));
+            //Instantiate(gm.GetComponent<GameManager>().icons[aux], enemySpot[aux].transform.position, enemySpot[aux].transform.rotation);
         }
     }
 

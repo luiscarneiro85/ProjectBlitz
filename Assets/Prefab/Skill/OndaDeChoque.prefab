@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1390715821430994}
+  m_IsPrefabAsset: 1
+--- !u!1 &1390715821430994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4981810443706832}
+  - component: {fileID: 114937134707246022}
+  m_Layer: 0
+  m_Name: OndaDeChoque
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4981810443706832
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390715821430994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.889975, y: -108.75803, z: 0.02749507}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114937134707246022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390715821430994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf8b0305c158f914f9f8b34bf5625bca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rechargeTime: 40
+  active: 0
+  cost: 30
+  effect: OndaDeChoque
+  effectTime: 2
+  effectPower: 1
+  purchased: 0
+  info: Cria uma forte pressao de ar causand dano em todos objetos do cenario dentro
+    do campo de visao e deixando os inimigos atordoatos por um instante.
+  ready: 0
+  icon: {fileID: 21300000, guid: dfd11ab3436cf2d4bb06435572b2b1a1, type: 3}
+  hp: 0
+  fire: {fileID: 0}
+  id: 6
+  visualEffect: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: 23b75a59a9c87cd4eaf6b62652f8baf6, type: 3}

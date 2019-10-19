@@ -18,6 +18,6 @@ public class a2vlScript : MonoBehaviour {
 
     void loadScene()
     {
-        SceneManager.LoadScene("MenuPrincipal");
+        SceneManager.LoadScene("Pesquisa");
     }
 }

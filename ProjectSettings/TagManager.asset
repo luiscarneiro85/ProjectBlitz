@@ -11,6 +11,11 @@ TagManager:
   - Chest
   - xp
   - Heal
+  - Clone
+  - Sentry
+  - Trap
+  - Fire
+  - Shield
   layers:
   - Default
   - TransparentFX
